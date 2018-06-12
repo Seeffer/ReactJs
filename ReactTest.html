@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #EEE;
+        }
+        #container h1 {
+            font-size: 48px;
+            font-family: sans-serif;
+            color: #0080A8;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        ReactDOM.render(
+            <div>
+                <h3><i>Batman</i></h3>
+                <h3><i>Iron Man</i></h3>
+                <h3><i>Nicholas Cage</i></h3>
+                <h3><i>Mega Man</i></h3>
+            </div>,
+            document.querySelector("#container")
+        );
+    </script>
+</body>
+</html>
