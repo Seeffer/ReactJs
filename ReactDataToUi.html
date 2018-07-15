@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>React! React! React!</title>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #EEE;
+        }
+        #container h1 {
+            font-size: 48px;
+            font-family: sans-serif;
+            color: #0080A8;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var Label = React.createClass({
+          render: function() {
+            var labelStyle = {
+                color: "white",
+                fontSize: 40,
+                fontFamily: "sans-serif",
+                width: 100,
+                height: 100,
+                padding: 25,
+            };
+
+            return (
+                <div style={labelStyle}>
+                    <label>Hi!</label>
+                </div>
+            );
+          }
+        });
+
+        var Circle = React.createClass({
+          render: function() {
+            var circleStyle = {
+                padding: 10,
+                margin: 20,
+                display: "inline-block",
+                backgroundColor: this.props.bgColor,
+                borderRadius: "50%",
+                width: 100,
+                height: 100,
+            };
+
+            return (
+              <div style={circleStyle}>
+                  <Label/>
+              </div>
+            );
+          }
+        });
+
+        var destination = document.querySelector("#container");
+        var colors = ["#393E41", "#E94F37", "#1C89BF", "#A1D363",
+                      "#85FFC7", "#297373", "#FF8552", "#A40E4C" ];
+
+        var renderData = [];
+
+        for (var i = 0; i < colors.length; i++) {
+            var ran = Math.floor(Math.random() * colors.length);
+
+            var color = colors[ran];
+            renderData.push(<Circle key={i + color} bgColor={color}/>);
+        }
+        
+        ReactDOM.render(
+            <div>
+                {renderData}
+            </div>,
+            destination
+        );
+    </script>
+</body>
+</html>
